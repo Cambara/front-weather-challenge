@@ -1,0 +1,44 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "plugin:prettier/recommended",
+    "airbnb-typescript-prettier",
+    "prettier",
+    "prettier/react"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "rules": {
+    "react/prop-types": [0],
+    "import/prefer-default-export": "warn",
+    "prettier/prettier": "off",
+    "space-before-function-paren": "off",
+    "consistent-return": [0],
+    "no-plusplus": [1],
+    "spaced-comment": [1],
+    "no-restricted-syntax": [0],
+    "no-return-assign": [0],
+    "import/no-cycle": [0],
+    "no-debugger": [1],
+    "array-callback-return": [0],
+    "@typescript-eslint/no-unused-vars": [1],
+    "@typescript-eslint/no-console": [0],
+    "@typescript-eslint/no-empty-function": [1],
+    "@typescript-eslint/no-use-before-define": ["error"]
+  }
+}

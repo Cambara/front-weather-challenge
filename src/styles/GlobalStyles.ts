@@ -7,7 +7,7 @@ export default createGlobalStyle`
         outline: 0;
         
         box-sizing: border-box;
-        font-family: "Proxima nova", sans-serif;
+        font-family: "Roboto", sans-serif;
     }
     html, body, #root {
         width: 100%;

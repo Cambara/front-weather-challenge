@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { Container, WrapperSearchBox } from "./style";
+import CityForm from "../../Components/CityForm";
 
-import { Container, Title } from "./style"
-
-const Home:React.FC = () => {
+const Home: React.FC = () => {
+  const [cityNames, setCityNames] = useState<string[]>([]);
   return (
     <Container>
-      <Title>Test</Title>
-
+      <WrapperSearchBox>
+        <CityForm setCityNames={setCityNames} cityNames={cityNames} />
+      </WrapperSearchBox>
     </Container>
   );
-}
+};
 
 export default Home;

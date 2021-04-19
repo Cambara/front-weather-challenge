@@ -23,3 +23,8 @@ export const WrapperSearchBox = styled.div`
     transform: translateX(50%);
   }
 `
+export const BlankRow = styled.div`
+  display: block;
+  width: 100%;
+  height: 120px;
+`

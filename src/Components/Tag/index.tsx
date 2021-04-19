@@ -12,7 +12,7 @@ const Tag: React.FC<IProps> = ({ name, handleClick, id }) => {
   return (
     <TagWrapper>
       <span>{name}</span>
-      <TagCloseBtn onClick={() => handleClick(id)} >x</TagCloseBtn>
+      <TagCloseBtn onClick={() => handleClick(id)} key={id} >x</TagCloseBtn>
     </TagWrapper>
   );
 };

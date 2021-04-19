@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toastError } from "../../helpers/toastHelper";
-import Button from "../Button";
+import { getWeatherByCities } from "../../services/weatherApi";
+import { IWeather } from "../../services/weatherApi/weatherModel";
 import Input from "../Input";
 import Tag from "../Tag";
-import { SearchButtonContainer } from "./style";
 
 interface IProps {
-  setCityNames: React.Dispatch<React.SetStateAction<string[]>>;
-  cityNames: string[];
+  setCityNames: React.Dispatch<React.SetStateAction<string[]>>
+  setCityWeathers: React.Dispatch<React.SetStateAction<IWeather[]>>;
+  cityNames: string[]
 }
 
-const CityForm: React.FC<IProps> = ({ cityNames, setCityNames }) => {
+const CityForm: React.FC<IProps> = ({ cityNames, setCityNames, setCityWeathers }) => {
   const [inputCity, setInputCity] = useState<string>("");
 
   const isToAddCity = (city:string): string | true => {
@@ -26,7 +27,7 @@ const CityForm: React.FC<IProps> = ({ cityNames, setCityNames }) => {
         toastError(result)
         return
       }
-      setCityNames(cityNames.concat([inputCity]))
+      setCityNames(cityNames.concat([inputCity.trim()]))
       setInputCity("")
     }
   };
@@ -41,10 +42,16 @@ const CityForm: React.FC<IProps> = ({ cityNames, setCityNames }) => {
     setCityNames(list)
   }
 
-  const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault()
-    console.log('pesquisar')
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      if(cityNames.length > 2) {
+        const result = await getWeatherByCities(cityNames)
+        if(result) setCityWeathers(result)
+      }
+    }
+
+    fetchData()
+  }, [cityNames, setCityWeathers])
 
   return (
     <section>
@@ -55,9 +62,6 @@ const CityForm: React.FC<IProps> = ({ cityNames, setCityNames }) => {
         placeholderText="Pressione enter para adicionar uma nova cidade"
         value={inputCity} />
       <div>{cityNames.map( (cityName, i) => <Tag name={cityName} id={i} handleClick={handleTagClick} />)}</div>
-      <SearchButtonContainer>
-        <Button handleClick={handleButtonClick}>Pesquisar</Button>
-      </SearchButtonContainer>
     </section>
   );
 };

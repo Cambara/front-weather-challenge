@@ -16,7 +16,6 @@ export const FirstRow = styled.div`
 
 export const Title = styled.h1`
   font-family: 'Roboto Slab', serif;
-  line-height: 50%;
   color: #466F87;
 
 `

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import GlobalStyles from './styles/GlobalStyles'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
+import Footer from './Components/Footer';
 
 const App:React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App:React.FC = () => {
         draggable
         pauseOnHover
       />
+      <Footer />
       <GlobalStyles/>
     </div>
   );

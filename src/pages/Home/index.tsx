@@ -5,6 +5,7 @@ import { IWeather } from "../../services/weatherApi/weatherModel";
 import { IWeatherChartModel } from "../../Components/Chart/WeatherBar/weatherChartModel";
 import WeatherBar from "../../Components/Chart/WeatherBar";
 import { createWeatherChartList } from "../../Components/Chart/WeatherBar/helper";
+import WeatherTable from "../../Components/WeatherTable";
 
 const Home: React.FC = () => {
   const [cityNames, setCityNames] = useState<string[]>([]);
@@ -27,7 +28,12 @@ const Home: React.FC = () => {
         <CityForm setCityNames={setCityNames} cityNames={cityNames} setCityWeathers={setCityWeathers} />
       </WrapperSearchBox>
       <BlankRow/>
-      { isToDisplay ? <WeatherBar data={weatherChartList} /> : ''  }
+      { isToDisplay ?
+        <section>
+          <WeatherBar data={weatherChartList} />
+          <WeatherTable cityWeathers={cityWeathers} />
+        </section>
+        : ''  }
     </Container>
   );
 };

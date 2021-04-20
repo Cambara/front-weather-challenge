@@ -2,8 +2,9 @@ import axios from 'axios';
 import { toastError } from '../../helpers/toastHelper';
 import { IGetWeatherByCitiesResponseDto } from './weatherDto';
 import { IWeather } from './weatherModel';
+import envHelper from '../../helpers/envHelper'
 
-const url = 'http://localhost:8000/get-weather'
+const url = `${envHelper.weatherApiHost}/get-weather`
 
 export const getWeatherByCities = async (cityNames:string[]):Promise<IWeather[] | undefined> => {
   const cities = cityNames.map( cityName => cityName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))

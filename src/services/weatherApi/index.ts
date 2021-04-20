@@ -6,10 +6,11 @@ import { IWeather } from './weatherModel';
 const url = 'http://localhost:8000/get-weather'
 
 export const getWeatherByCities = async (cityNames:string[]):Promise<IWeather[] | undefined> => {
+  const cities = cityNames.map( cityName => cityName.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
   try {
     const result = await axios.get<IGetWeatherByCitiesResponseDto>(url, {
       params: {
-        cities: cityNames
+        cities
       }
     })
     return result.data.data.weatherCities

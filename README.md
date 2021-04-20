@@ -11,7 +11,7 @@
 |   ├── services                              <- Camada de serviço
 |   ├── styles                                <- Contém os estilos default do sistema
 |   ├── App.tsx                               <- Arquivo contém a base da aplicação.
-|   ├── index.tsx                             <- Arquivo contém com a configuração para renderizar a aplicação
+|   ├── index.tsx                             <- Arquivo contém com as configurações para renderizar a aplicação
 
 ```
 

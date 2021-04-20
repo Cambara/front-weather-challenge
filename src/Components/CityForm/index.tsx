@@ -61,7 +61,7 @@ const CityForm: React.FC<IProps> = ({ cityNames, setCityNames, setCityWeathers }
         handleKeyPress= {handleKeyPress}
         placeholderText="Pressione enter para adicionar uma nova cidade"
         value={inputCity} />
-      <div>{cityNames.map( (cityName, i) => <Tag name={cityName} id={i} handleClick={handleTagClick} />)}</div>
+      <div>{cityNames.map( (cityName, i) => <Tag name={cityName} id={i} handleClick={handleTagClick} key={i} />)}</div>
     </section>
   );
 };

@@ -28,3 +28,8 @@ export const BlankRow = styled.div`
   width: 100%;
   height: 120px;
 `
+
+export const WrapperTable = styled.section`
+  display: flex;
+  width: 100%;
+`

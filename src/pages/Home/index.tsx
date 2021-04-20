@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BlankRow, Container, WrapperSearchBox } from "./style";
+import { BlankRow, Container, WrapperSearchBox, WrapperTable } from "./style";
 import CityForm from "../../Components/CityForm";
 import { IWeather } from "../../services/weatherApi/weatherModel";
 import { IWeatherChartModel } from "../../Components/Chart/WeatherBar/weatherChartModel";
@@ -31,7 +31,9 @@ const Home: React.FC = () => {
       { isToDisplay ?
         <section>
           <WeatherBar data={weatherChartList} />
-          <WeatherTable cityWeathers={cityWeathers} />
+          <WrapperTable>
+            <WeatherTable cityWeathers={cityWeathers} />
+          </WrapperTable>
         </section>
         : ''  }
     </Container>

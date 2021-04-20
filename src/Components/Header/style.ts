@@ -21,6 +21,6 @@ export const Title = styled.h1`
 `
 
 export const SecondtRow = styled(FirstRow)`
-  background-color: #659DBD;
+  background-color: #466F87;
   height: 150px;
 `

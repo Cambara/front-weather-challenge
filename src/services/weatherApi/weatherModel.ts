@@ -1,8 +1,8 @@
 
 export interface IWeather {
   city: string
-  sunrise: string
-  sunset: string
+  sunrise: number
+  sunset: number
   temp: number
   tempMax: number
   tempMin: number

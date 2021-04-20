@@ -59,7 +59,7 @@ const WeatherTable: React.FC<IProp> = ({ cityWeathers }) => {
         </tr>
       </THead>
       <TBody>
-        {tableLines.map( weather => <WeatherRow weather={weather} />)}
+        {tableLines.map( weather => <WeatherRow weather={weather} key={weather.city} />)}
       </TBody>
     </Table>
   );

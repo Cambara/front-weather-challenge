@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { toastError } from '../../helpers/toastHelper';
-import { convertResponseToWeather } from './helper';
 import { IGetWeatherByCitiesResponseDto } from './weatherDto';
 import { IWeather } from './weatherModel';
 
@@ -13,7 +12,7 @@ export const getWeatherByCities = async (cityNames:string[]):Promise<IWeather[] 
         cities: cityNames
       }
     })
-    return result.data.data.weatherCities.map( weatherCity => convertResponseToWeather(weatherCity))
+    return result.data.data.weatherCities
     
   } catch (error) {
     const msg = error.response?.data?.message ? error.response.data.message : 'Erro no sistema. Por favor tente novamente ou entre em contato com o nosso suporte'

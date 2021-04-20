@@ -1,17 +1,9 @@
-
-export interface IWeatherCityResponse {
-  city: string
-  sunrise: number
-  sunset: number
-  temp: number
-  tempMax: number
-  tempMin: number
-}
+import { IWeather } from "./weatherModel";
 
 export interface IGetWeatherByCitiesResponseDto {
   message: string
   status: true
   data: {
-    weatherCities: IWeatherCityResponse[]
+    weatherCities: IWeather[]
   }
 }

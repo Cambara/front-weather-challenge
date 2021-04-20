@@ -1,4 +1,5 @@
 import React from "react";
+import { convertUnixDateToFormatDate } from "../../../helpers/dateHelper";
 import { IWeather } from "../../../services/weatherApi/weatherModel";
 
 interface IProps {
@@ -9,11 +10,11 @@ const WeatherRow: React.FC<IProps> = ({ weather }) => {
   return (
     <tr>
       <td>{weather.city}</td>
-      <td>{weather.temp}</td>
-      <td>{weather.tempMax}</td>
-      <td>{weather.tempMin}</td>
-      <td>{weather.sunrise}</td>
-      <td>{weather.sunset}</td>
+      <td>{weather.temp} &#8451;</td>
+      <td>{weather.tempMax} &#8451;</td>
+      <td>{weather.tempMin} &#8451;</td>
+      <td>{convertUnixDateToFormatDate(weather.sunrise)}</td>
+      <td>{convertUnixDateToFormatDate(weather.sunset)}</td>
     </tr>
   );
 };

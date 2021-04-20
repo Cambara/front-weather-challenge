@@ -11,6 +11,9 @@ export const THead = styled.thead`
     color: #FFF;
     cursor: pointer; 
   }
+  tr > th {
+    padding: 3px;
+  }
 `
 
 export const TBody = styled.tbody`
